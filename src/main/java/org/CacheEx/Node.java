@@ -1,37 +1,31 @@
 package org.example;
 
-public class Node<T extends Comparable<T>>
+public class Node<K, V>
 {
-    private T data;
-    private Node<T> next, prev;
+    private K key;
+    private V value;
+    private Node<K, V> next, prev;
 
-    public Node(T data, Node<T> next, Node<T> prev)
+    public Node(K key, V value)
     {
-        this.data = data;
-        this.next = next;
-        this.prev = prev;
-    }
-
-    public Node(T data, Node<T> prev)
-    {
-        this.data = data;
-        this.prev = prev;
-        this.next = null;
-    }
-
-    public Node(T data)
-    {
-        this.data = data;
+        this.key = key;
+        this.value = value;
         this.next = null;
         this.prev = null;
     }
 
-    public T getData() {return data;}
-    public void setData(T data) {this.data = data;}
+    public V getValue() {return value;}
+    public void setValue(V value) {this.value = value;}
 
-    public Node<T> getNext() {return next;}
-    public void setNext(Node<T> next) {this.next = next;}
+    public K getKey() {return key;}
+    public void setKey(K key) {this.key = key;}
 
-    public Node<T> getPrev() {return prev;}
-    public void setPrev(Node<T> prev) {this.prev = prev;}
+    public Node<K, V> getNext() {return next;}
+    public void setNext(Node<K, V> next) {this.next = next;}
+
+    public Node<K, V> getPrev() {return prev;}
+    public void setPrev(Node<K, V> prev) {this.prev = prev;}
+
+    @Override
+    public String toString() {return "Key=" + key + ", Value=" + value;}
 }
