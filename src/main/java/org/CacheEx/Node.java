@@ -1,4 +1,4 @@
-package org.example;
+package org.CacheEx;
 
 public class Node<K, V>
 {
@@ -10,8 +10,7 @@ public class Node<K, V>
     {
         this.key = key;
         this.value = value;
-        this.next = null;
-        this.prev = null;
+        next = prev = null;
     }
 
     public V getValue() {return value;}
