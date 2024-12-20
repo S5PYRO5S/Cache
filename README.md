@@ -21,7 +21,7 @@ The application is written in Java, uses the Maven build system and is tested us
       - **Put**: Insert a key-value pair.
 
 
--[ ] **Cache Data Structures**:
+- [ ] **Cache Data Structures**:
   - [x] **LRU Cache** 
       - **Doubly Linked List**
       - **HashMap**
