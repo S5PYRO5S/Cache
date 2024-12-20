@@ -32,7 +32,7 @@ public class CustomLinkedList<K, V>
      */
     public void insertAtTail(Node<K, V> newNode)
     {
-        if(newNode == null) return; //null check
+        if(newNode == null) throw new IllegalArgumentException("Node cannot be null"); //null check
         if (isEmpty()) head = tail = newNode;
         else
         {
@@ -48,7 +48,7 @@ public class CustomLinkedList<K, V>
      */
     public void insertAtHead(Node<K, V> newNode)
     {
-        if(newNode == null) return;
+        if(newNode == null) throw new IllegalArgumentException("Node cannot be null");
         if (isEmpty()) head = tail = newNode;
         else
         {
