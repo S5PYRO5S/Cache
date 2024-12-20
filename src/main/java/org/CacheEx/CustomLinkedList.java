@@ -1,5 +1,10 @@
 package org.CacheEx;
 
+/**
+ * Custom Doubly Linked List implementation for the {@link LRUCache} Data Structure
+ * @param <K>  The key of a Node
+ * @param <V>  The value of a Node
+ */
 public class CustomLinkedList<K, V>
 {
     private Node<K, V> head, tail;
@@ -19,6 +24,7 @@ public class CustomLinkedList<K, V>
 
     public void insertAtTail(Node<K, V> newNode)
     {
+        if(newNode == null) return; //null check
         if (isEmpty()) head = tail = newNode;
         else
         {
@@ -30,6 +36,7 @@ public class CustomLinkedList<K, V>
 
     public void insertAtHead(Node<K, V> newNode)
     {
+        if(newNode == null) return;
         if (isEmpty()) head = tail = newNode;
         else
         {
@@ -41,13 +48,10 @@ public class CustomLinkedList<K, V>
 
     public Node<K, V> deleteHead()
     {
-        if (isEmpty()) return null;
+        if(isEmpty()) return null;
         Node<K, V> temp = head;
-        if (head == tail)
-        {
-            clear();
-            return temp;
-        }
+        //if list has only 1 node
+        if(head.getNext() == null) clear();
         else
         {
             head = head.getNext();
@@ -60,13 +64,8 @@ public class CustomLinkedList<K, V>
     public Node<K, V> deleteTail()
     {
         if (isEmpty()) return null;
-
         Node<K, V> temp = tail;
-        if (head == tail)
-        {
-            clear();
-            return temp;
-        }
+        if (tail.getPrev() == null) clear();
         else
         {
             tail = tail.getPrev();
@@ -74,29 +73,6 @@ public class CustomLinkedList<K, V>
         }
         return temp;
     }
-
-
-    //(helper method) takes a node and removes it from the list
-//    private void detachFromList(Node<K, V> node)
-//    {
-//        // If the node is null, do nothing
-//        if (node == null) return;
-//
-//        // Remove the node from the list (disconnect the node from its neighbors)
-//        if (node.getPrev() != null) node.getPrev().setNext(node.getNext());
-//        if (node.getNext() != null) node.getNext().setPrev(node.getPrev());
-//
-//        // Update head and tail if needed
-//        if (node == head) head = node.getNext();
-//        if (node == tail) tail = node.getPrev();
-//
-//        // If the list has only one element left
-//        if (head == null) tail = null;
-//
-//        // Break the node's links to fully detach it
-//        node.setNext(null);
-//        node.setPrev(null);
-//    }
 
     //(helper method) takes a node and removes it from the list
     private void detachFromList(Node<K, V> node)
@@ -153,4 +129,26 @@ public class CustomLinkedList<K, V>
         head.setPrev(node);
         head = node;
     }
+
+    //(helper method) takes a node and removes it from the list
+//    private void detachFromList(Node<K, V> node)
+//    {
+//        // If the node is null, do nothing
+//        if (node == null) return;
+//
+//        // Remove the node from the list (disconnect the node from its neighbors)
+//        if (node.getPrev() != null) node.getPrev().setNext(node.getNext());
+//        if (node.getNext() != null) node.getNext().setPrev(node.getPrev());
+//
+//        // Update head and tail if needed
+//        if (node == head) head = node.getNext();
+//        if (node == tail) tail = node.getPrev();
+//
+//        // If the list has only one element left
+//        if (head == null) tail = null;
+//
+//        // Break the node's links to fully detach it
+//        node.setNext(null);
+//        node.setPrev(null);
+//    }
 }

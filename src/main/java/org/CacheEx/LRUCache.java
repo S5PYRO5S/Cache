@@ -20,7 +20,12 @@ public class LRUCache<K, V> implements Cache<K, V>
     @Override
     public V get(K key)
     {
-        if(map.containsKey(key)) return map.get(key).getValue(); //if key in map return node
+        if(map.containsKey(key))
+        {
+            Node<K, V> node = map.get(key); //save the found node so we can use it
+            list.moveToTail(node);          //move the accessed node to the tail
+            return node.getValue();         //if key in map return node
+        }
         return null; //else return null
     }
 
@@ -30,7 +35,9 @@ public class LRUCache<K, V> implements Cache<K, V>
         //if key exists move it to tail(most resent)
         if(map.containsKey(key))
         {
-            list.moveToTail(map.get(key));
+            Node<K, V> node = map.get(key);
+            node.setValue(value);           //update node value
+            list.moveToTail(node);          //move the node to the tail of the list
             return;
         }
 
@@ -47,4 +54,7 @@ public class LRUCache<K, V> implements Cache<K, V>
         list.insertAtTail(newNode);
         size++;
     }
+
+    @Override
+    public int getSize() {return size;}
 }

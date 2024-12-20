@@ -22,4 +22,8 @@ public interface Cache<K, V> {
      * @param value the value
      */
     void put(K key, V value);
+    /**
+     * Get the current size of the cache
+     */
+    int getSize();
 }
