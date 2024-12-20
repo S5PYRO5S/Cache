@@ -1,5 +1,10 @@
 package org.CacheEx;
 
+/**
+ * The Node that is used be the {@link CustomLinkedList}
+ * @param <K> the key
+ * @param <V> the value
+ */
 public class Node<K, V>
 {
     private K key;
