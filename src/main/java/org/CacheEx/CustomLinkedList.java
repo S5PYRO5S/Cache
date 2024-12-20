@@ -7,8 +7,10 @@ package org.CacheEx;
  */
 public class CustomLinkedList<K, V>
 {
+    //the head and tail of the list
     private Node<K, V> head, tail;
 
+    // the constructor
     public CustomLinkedList()
     {
         head = tail = null;
@@ -20,11 +22,17 @@ public class CustomLinkedList<K, V>
 
     //clear method (maybe useless)
     public void clear() {head = tail = null;}
+
+    //checks if the list is empty
     public boolean isEmpty(){return head == null;}
 
+    /**
+     * Inserts node at the end of the list
+     * @param newNode the node to insert
+     */
     public void insertAtTail(Node<K, V> newNode)
     {
-        if(newNode == null) return; //null check
+        if(newNode == null) throw new IllegalArgumentException("Node cannot be null"); //null check
         if (isEmpty()) head = tail = newNode;
         else
         {
@@ -34,9 +42,13 @@ public class CustomLinkedList<K, V>
         }
     }
 
+    /**
+     * Inserts node at the beginning of the list
+     * @param newNode the node to insert
+     */
     public void insertAtHead(Node<K, V> newNode)
     {
-        if(newNode == null) return;
+        if(newNode == null) throw new IllegalArgumentException("Node cannot be null");
         if (isEmpty()) head = tail = newNode;
         else
         {
@@ -46,6 +58,10 @@ public class CustomLinkedList<K, V>
         }
     }
 
+    /**
+     * Deletes the first node of the list
+     * @return the deleted node
+     */
     public Node<K, V> deleteHead()
     {
         if(isEmpty()) return null;
@@ -60,7 +76,10 @@ public class CustomLinkedList<K, V>
         return temp;
     }
 
-
+    /**
+     * Deletes the last node of the list
+     * @return the deleted node
+     */
     public Node<K, V> deleteTail()
     {
         if (isEmpty()) return null;
@@ -74,7 +93,10 @@ public class CustomLinkedList<K, V>
         return temp;
     }
 
-    //(helper method) takes a node and removes it from the list
+    /**
+     * (helper method) takes a node and removes(detaches the links of the node) it from the list
+     * @param node the node to detach
+     */
     private void detachFromList(Node<K, V> node)
     {
         if (node == null) return;   //null check
@@ -104,30 +126,27 @@ public class CustomLinkedList<K, V>
         node.setNext(null);
     }
 
-
+    /**
+     * Takes a list node and places it to the end of the list
+     * @param node the node that is moved to the tail
+     */
     public void moveToTail(Node<K, V> node)
     {
-        if (node == tail || node == null) return; //null check
-
-        //detach the node from its list
-        detachFromList(node);
-
-        // place the detached node at the tail
-        node.setNext(null);
-        node.setPrev(tail);
-        tail.setNext(node);
-        tail = node;
+        if (node == tail || node == head || node == null) return; //null check
+        detachFromList(node);   //detach the node from its list
+        insertAtTail(node);     // place the detached node at the tail
     }
 
+    /**
+     * Takes a list node and places it to the beginning of the list
+     * @param node the node that is moved to the head
+     */
     public void moveToHead(Node<K, V> node)
     {
         //similar process for the head
-        if (node == head || node == null) return; //null check
+        if (node == head || node == tail || node == null) return; //null check
         detachFromList(node);
-        node.setPrev(null);
-        node.setNext(head);
-        head.setPrev(node);
-        head = node;
+        insertAtHead(node);
     }
 
     //(helper method) takes a node and removes it from the list
