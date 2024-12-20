@@ -32,7 +32,7 @@ public class CustomLinkedList<K, V>
      */
     public void insertAtTail(Node<K, V> newNode)
     {
-        if(newNode == null) throw new IllegalArgumentException("Node cannot be null"); //null check
+        if(newNode == null) return; //null check
         if (isEmpty()) head = tail = newNode;
         else
         {
@@ -48,7 +48,7 @@ public class CustomLinkedList<K, V>
      */
     public void insertAtHead(Node<K, V> newNode)
     {
-        if(newNode == null) throw new IllegalArgumentException("Node cannot be null");
+        if(newNode == null) return;
         if (isEmpty()) head = tail = newNode;
         else
         {
@@ -132,9 +132,14 @@ public class CustomLinkedList<K, V>
      */
     public void moveToTail(Node<K, V> node)
     {
-        if (node == tail || node == head || node == null) return; //null check
+        if (node == tail || node == null) return; //null check
         detachFromList(node);   //detach the node from its list
-        insertAtTail(node);     // place the detached node at the tail
+
+        // place the detached node at the tail
+        node.setNext(null);
+        node.setPrev(tail);
+        tail.setNext(node);
+        tail = node;
     }
 
     /**
@@ -144,9 +149,12 @@ public class CustomLinkedList<K, V>
     public void moveToHead(Node<K, V> node)
     {
         //similar process for the head
-        if (node == head || node == tail || node == null) return; //null check
+        if (node == head || node == null) return; //null check
         detachFromList(node);
-        insertAtHead(node);
+        node.setPrev(null);
+        node.setNext(head);
+        head.setPrev(node);
+        head = node;
     }
 
     //(helper method) takes a node and removes it from the list

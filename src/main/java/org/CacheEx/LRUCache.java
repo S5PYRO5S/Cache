@@ -50,7 +50,6 @@ public class LRUCache<K, V> implements Cache<K, V>
         addNewNode(key, value);
     }
 
-
     //============================ Helper Methods ============================
     //encapsulates the behaviour of the least recently used item removal
     private void evictLRU()
