@@ -94,39 +94,6 @@ public class CustomLinkedList<K, V>
     }
 
     /**
-     * (helper method) takes a node and removes(detaches the links of the node) it from the list
-     * @param node the node to detach
-     */
-    private void detachFromList(Node<K, V> node)
-    {
-        if (node == null) return;   //null check
-
-        //if node is the head
-        if (node == head)
-        {
-            head = node.getNext();
-            if (head != null) head.setPrev(null);
-        }
-        // if node is the tail
-        else if (node == tail)
-        {
-            tail = node.getPrev();
-            if (tail != null) tail.setNext(null);
-        }
-        //if node is in the list
-        else
-        {
-            //remove the node from the list
-            node.getPrev().setNext(node.getNext());
-            node.getNext().setPrev(node.getPrev());
-        }
-
-        // make node's next and prev pointers null
-        node.setPrev(null);
-        node.setNext(null);
-    }
-
-    /**
      * Takes a list node and places it to the end of the list
      * @param node the node that is moved to the tail
      */
@@ -134,12 +101,7 @@ public class CustomLinkedList<K, V>
     {
         if (node == tail || node == null) return; //null check
         detachFromList(node);   //detach the node from its list
-
-        // place the detached node at the tail
-        node.setNext(null);
-        node.setPrev(tail);
-        tail.setNext(node);
-        tail = node;
+        insertAtTail(node);     //place the detached node at the tail
     }
 
     /**
@@ -151,31 +113,31 @@ public class CustomLinkedList<K, V>
         //similar process for the head
         if (node == head || node == null) return; //null check
         detachFromList(node);
-        node.setPrev(null);
-        node.setNext(head);
-        head.setPrev(node);
-        head = node;
+        insertAtHead(node);
     }
 
-    //(helper method) takes a node and removes it from the list
-//    private void detachFromList(Node<K, V> node)
-//    {
-//        // If the node is null, do nothing
-//        if (node == null) return;
-//
-//        // Remove the node from the list (disconnect the node from its neighbors)
-//        if (node.getPrev() != null) node.getPrev().setNext(node.getNext());
-//        if (node.getNext() != null) node.getNext().setPrev(node.getPrev());
-//
-//        // Update head and tail if needed
-//        if (node == head) head = node.getNext();
-//        if (node == tail) tail = node.getPrev();
-//
-//        // If the list has only one element left
-//        if (head == null) tail = null;
-//
-//        // Break the node's links to fully detach it
-//        node.setNext(null);
-//        node.setPrev(null);
-//    }
+    /**
+     * (helper method) takes a node and removes(detaches the links of the node) it from the list
+     * @param node the node to detach
+     */
+    private void detachFromList(Node<K, V> node)
+    {
+        // If the node is null, do nothing
+        if (node == null) return;
+
+        // Remove the node from the list (disconnect the node from its neighbors)
+        if (node.getPrev() != null) node.getPrev().setNext(node.getNext());
+        if (node.getNext() != null) node.getNext().setPrev(node.getPrev());
+
+        // Update head and tail if needed
+        if (node == head) head = node.getNext();
+        if (node == tail) tail = node.getPrev();
+
+        // If the list has only one element left
+        if (head == null) tail = null;
+
+        // Break the node's links to fully detach it
+        node.setNext(null);
+        node.setPrev(null);
+    }
 }
