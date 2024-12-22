@@ -42,7 +42,7 @@ The application is written in Java, uses the Maven build system and is tested us
 
 
 ##### To use the app, you need to install the following dependencies:
-- ***Java***  (version 11 or higher)
+- ***Java***
 - ***Apache Maven*** 
 - ***JUnit 4*** 
 
