@@ -1,7 +1,7 @@
 # Cache
 
 ### Description:
-
+The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
 The application is a work in progress that implements simple Cache algorithms. 
 It currently implements the LRU (Least Recently Used) algorithm using a doubly linked list and a hashmap.
 The application is written in Java, uses the Maven build system and is tested using JUnit 4.
@@ -30,16 +30,9 @@ The application is written in Java, uses the Maven build system and is tested us
       - **HashMap**
   - [ ] **LFU Cache**
       - **Doubly Linked List**
-      - **MinHeap** 
+      - **MinHeap**
 
-
-
-
-
-
-
-
-The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
+#### The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
 ### Team Members:
 | Ονοματεπώνυμο         | Email                    |
 |-----------------------|--------------------------|
@@ -48,7 +41,7 @@ The application is the project assignment for the course "Data-Structures" at th
 | Ξηρομερίτης Δημήτριος | it2023052@hua.gr         |
 
 
-To use the app, you need to install the following dependencies:
+##### To use the app, you need to install the following dependencies:
 - ***Java***  (version 17 or higher)
 - ***Apache Maven*** (version 3.8.1 or higher)
 - ***JUnit 4*** (version 4.13.1 or higher)
@@ -70,7 +63,7 @@ mvn package
 Run main using:
 
 ```
-java -cp target/Cache1.0.jar org.CacheEx.Main
+java -cp target/cache1.0.jar org.CacheEx.App
 ```
 
 Run unit tests using:
