@@ -42,9 +42,9 @@ The application is written in Java, uses the Maven build system and is tested us
 
 
 ##### To use the app, you need to install the following dependencies:
-- ***Java***  (version 17 or higher)
-- ***Apache Maven*** (version 3.8.1 or higher)
-- ***JUnit 4*** (version 4.13.1 or higher)
+- ***Java***  (version 11 or higher)
+- ***Apache Maven*** 
+- ***JUnit 4*** 
 
 ## Usage
 
