@@ -26,4 +26,16 @@ public interface Cache<K, V> {
      * Get the current size of the cache
      */
     int getSize();
+
+    /**
+     *
+     * @return the number of times the cache has been successfully hit
+     */
+    long getHitCount();
+
+    /**
+     *
+     * @return the total number of cache misses
+     */
+    long getMissCount();
 }

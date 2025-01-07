@@ -1,7 +1,7 @@
 package org.CacheEx;
 
 /**
- * Custom Doubly Linked List implementation for the {@link LRUCache} Data Structure
+ * Custom Doubly Linked List implementation for the {@link CacheImpl} Data Structure
  * @param <K>  The key of a Node
  * @param <V>  The value of a Node
  */

@@ -4,8 +4,9 @@ import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
+
         Random random = new Random();
-        Cache<Integer, Integer> cache = new LRUCache<>(100_000);
+        Cache<Integer, Integer> cache = new CacheImpl<>(100_000);
         for (int i = 0; i < 100_000; i++) {
 
             if (random.nextInt(10) < 7) {
