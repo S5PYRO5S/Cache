@@ -1,10 +1,18 @@
 package org.CacheEx;
 
-public class App
-{
-    public static void main(String[] args)
-    {
-    System.out.println("The main method is currently empty.\n" +
-            "Please refer to the README.md file for instructions on how to run the program.");
+import java.util.Random;
+
+public class App {
+    public static void main(String[] args) {
+        Random random = new Random();
+        Cache<Integer, Integer> cache = new LRUCache<>(100_000);
+        for (int i = 0; i < 100_000; i++) {
+
+            if (random.nextInt(10) < 7) {
+                cache.put(random.nextInt(100_000), random.nextInt(100_000));
+            } else {
+
+            }
+        }
     }
 }

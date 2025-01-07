@@ -13,6 +13,7 @@ public class LRUCache<K, V> implements Cache<K, V>
     private int size;
     private final HashMap<K, Node<K, V>> map;
     private final CustomLinkedList<K, V> list;
+    private long hitCount, missCount;
 
     public LRUCache(int capacity)
     {
@@ -20,6 +21,8 @@ public class LRUCache<K, V> implements Cache<K, V>
         size = 0;
         map = new HashMap<>();
         list = new CustomLinkedList<>();
+        hitCount = 0;
+        missCount = 0;
     }
 
     @Override
@@ -27,10 +30,12 @@ public class LRUCache<K, V> implements Cache<K, V>
     {
         if(map.containsKey(key))
         {
+            hitCount++;
             Node<K, V> node = map.get(key); //save the found node so we can use it
             list.moveToTail(node);          //move the accessed node to the tail
             return node.getValue();         //if key in map return node
         }
+        missCount++;
         return null; //else return null
     }
 
@@ -76,4 +81,12 @@ public class LRUCache<K, V> implements Cache<K, V>
 
     @Override
     public int getSize() {return size;}
+
+
+    public long getHitCount(){
+        return hitCount;
+    }
+    public long getMissCount(){
+        return missCount;
+    }
 }
