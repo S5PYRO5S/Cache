@@ -1,7 +1,6 @@
 # Cache
 
 ### Description:
-The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
 The application is a work in progress that implements simple Cache algorithms. 
 It currently implements the **LRU** (Least Recently Used) and the **MRU** (Most Recently Used) algorithms using a doubly linked list and a hashmap.
 Both algorithms have an expected time complexity of **O(1)** for both get and put operations.
