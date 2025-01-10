@@ -102,7 +102,7 @@ public class CacheImplTest
     }
 
     @Test
-    public void testMRUOrder()
+        public void testMRUOrder()
     {
         Cache<Integer, String> cache = new CacheImpl<>(MIN_CACHE_CAPACITY, CacheReplacementPolicy.MRU);
 

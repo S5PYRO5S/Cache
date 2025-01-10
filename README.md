@@ -3,7 +3,8 @@
 ### Description:
 The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
 The application is a work in progress that implements simple Cache algorithms. 
-It currently implements the LRU (Least Recently Used) algorithm using a doubly linked list and a hashmap.
+It currently implements the **LRU** (Least Recently Used) and the **MRU** (Most Recently Used) algorithms using a doubly linked list and a hashmap.
+Both algorithms have an expected time complexity of **O(1)** for both get and put operations.
 The application is written in Java, uses the Maven build system and is tested using JUnit 4.
 
 ### Features:
@@ -12,7 +13,7 @@ The application is written in Java, uses the Maven build system and is tested us
       - **Get**: Get the value of a key.
       - **Put**: Insert a key-value pair.
   
-  - [ ] **MRU Cache**: The cache is implemented using the MRU (Most Recently Used) algorithm.
+  - [x] **MRU Cache**: The cache is implemented using the MRU (Most Recently Used) algorithm.
       - **Get**: Get the value of a key.
       - **Put**: Insert a key-value pair.
     
@@ -25,11 +26,10 @@ The application is written in Java, uses the Maven build system and is tested us
   - [x] **LRU Cache** 
       - **Doubly Linked List**
       - **HashMap**
-  - [ ] **MRU Cache**
+  - [x] **MRU Cache**
       - **Doubly Linked List**
       - **HashMap**
   - [ ] **LFU Cache**
-      - **Doubly Linked List**
       - **MinHeap**
 
 #### The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
@@ -63,7 +63,7 @@ mvn package
 Run main using:
 
 ```
-java -cp target/cache1.0.jar org.CacheEx.App
+java -cp target/cache2.0.jar org.CacheEx.App
 ```
 
 Run unit tests using:

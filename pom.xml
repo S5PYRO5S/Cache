@@ -6,7 +6,7 @@
 
     <groupId>org.CacheEx</groupId>
     <artifactId>Cache</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
@@ -15,7 +15,7 @@
     </properties>
 
     <build>
-        <finalName>cache1.0</finalName>
+        <finalName>cache2.0</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
