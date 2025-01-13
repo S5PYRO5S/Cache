@@ -120,7 +120,7 @@ public class CustomLinkedList<K, V>
      * (helper method) takes a node and removes(detaches the links of the node) it from the list
      * @param node the node to detach
      */
-    private void detachFromList(Node<K, V> node)
+    public void detachFromList(Node<K, V> node)
     {
         // If the node is null, do nothing
         if (node == null) return;

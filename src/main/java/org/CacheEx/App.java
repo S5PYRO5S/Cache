@@ -38,5 +38,7 @@ public class App
         System.out.printf("Cache Misses: %d\n", cache.getMissCount());
         System.out.printf("Hit Rate: %.2f\n", (cache.getHitCount() / (double) totalOperations) * 100);
         System.out.printf("Miss Rate: %.2f\n", (cache.getMissCount() / (double) totalOperations) * 100);
+
+
     }
 }
