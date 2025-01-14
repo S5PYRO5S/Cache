@@ -7,7 +7,7 @@ Both algorithms have an expected time complexity of **O(1)** for both get and pu
 The application is written in Java, uses the Maven build system and is tested using JUnit 4.
 
 ### Features:
-- [ ] Cache Operations:
+- [x] Cache Operations:
   - [x] **LRU Cache**: The cache is implemented using the LRU (Least Recently Used) algorithm.
       - **Get**: Get the value of a key.
       - **Put**: Insert a key-value pair.
@@ -16,20 +16,26 @@ The application is written in Java, uses the Maven build system and is tested us
       - **Get**: Get the value of a key.
       - **Put**: Insert a key-value pair.
     
-  - [ ] **LFU Cache**: The cache is implemented using the LFU (Least Frequently Used) algorithm.
+  - [x] **LFU Cache**: The cache is implemented using the LFU (Least Frequently Used) algorithm.
       - **Get**: Get the value of a key.
       - **Put**: Insert a key-value pair.
 
 
-- [ ] **Cache Data Structures**:
+- [x] **Cache Data Structures**:
   - [x] **LRU Cache** 
       - **Doubly Linked List**
       - **HashMap**
   - [x] **MRU Cache**
       - **Doubly Linked List**
       - **HashMap**
-  - [ ] **LFU Cache**
-      - **MinHeap**
+  - [x] **LFU Cache**
+      - **TreeMap**
+      - **HashMap**
+  
+
+
+
+
 
 #### The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
 ### Team Members:
