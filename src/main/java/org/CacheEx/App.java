@@ -9,6 +9,7 @@ public class App
         int totalOperations = 100_000;
         int cacheCapacity = 2000;
         Random random = new Random();
+
         Cache<Integer, Integer> cache = new CacheImpl<>(cacheCapacity, CacheReplacementPolicy.LRU);
 
         int[] eightyPercentKeys = new int[1000];
