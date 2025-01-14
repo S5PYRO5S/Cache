@@ -148,7 +148,7 @@ public class CacheImpl<K, V> implements Cache<K, V>
         {
             long frequency = node.getFrequency();
             frequencyMap.get(frequency).detachFromList(node);
-            if (frequencyMap.get(frequency).isEmpty()) frequencyMap.remove(frequency);
+            if (frequencyMap.get(frequency).isEmpty()) frequencyMap.remove(frequency); // save memory
 
             node.incrementFrequency();
             frequencyMap.computeIfAbsent(node.getFrequency(), k -> new CustomLinkedList<>()).insertAtTail(node);
