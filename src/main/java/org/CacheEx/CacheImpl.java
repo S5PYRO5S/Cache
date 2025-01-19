@@ -101,8 +101,8 @@ public class CacheImpl<K, V> implements Cache<K, V>
 
     /**
      * The Interface that determines the behavior of the Cache Type objects
-     * @param <K>
-     * @param <V>
+     * @param <K> the key of a node
+     * @param <V> the value of a node
      */
     private interface CacheType<K, V>
     {
@@ -146,26 +146,26 @@ public class CacheImpl<K, V> implements Cache<K, V>
         @Override
         public void access(Node<K, V> node)
         {
-            long frequency = node.getFrequency();
-            frequencyMap.get(frequency).detachFromList(node);
+            long frequency = node.getFrequency(); // get the frequency of the node
+            frequencyMap.get(frequency).detachFromList(node); // detach the node from the list
             if (frequencyMap.get(frequency).isEmpty()) frequencyMap.remove(frequency); // save memory
 
             node.incrementFrequency();
-            frequencyMap.computeIfAbsent(node.getFrequency(), k -> new CustomLinkedList<>()).insertAtTail(node);
+            frequencyMap.computeIfAbsent(node.getFrequency(), k -> new CustomLinkedList<>()).insertAtTail(node); // insert node to the list
         }
 
         @Override
         public void insert(Node<K, V> node)
         {
-            frequencyMap.computeIfAbsent(node.getFrequency(), k -> new CustomLinkedList<>()).insertAtTail(node);
+            frequencyMap.computeIfAbsent(node.getFrequency(), k -> new CustomLinkedList<>()).insertAtTail(node); // insert node to the list
         }
 
         @Override
         public Node<K, V> evict()
         {
-            long lowestFrequency = frequencyMap.firstKey();
-            Node<K, V> node = frequencyMap.get(lowestFrequency).deleteHead();
-            if (frequencyMap.get(lowestFrequency).isEmpty()) frequencyMap.remove(lowestFrequency);
+            long lowestFrequency = frequencyMap.firstKey(); // get the lowest frequency
+            Node<K, V> node = frequencyMap.get(lowestFrequency).deleteHead(); // get the head of the list
+            if (frequencyMap.get(lowestFrequency).isEmpty()) frequencyMap.remove(lowestFrequency); // save memory
             return node;
         }
     }

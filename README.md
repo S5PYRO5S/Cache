@@ -71,11 +71,11 @@ An application that implements various cache algorithms and runs relevant tests.
 
 #### The application is the project assignment for the course "Data-Structures" at the Harokopio University of Athens.
 ### Team Members:
-| Ονοματεπώνυμο             | Email                    |
-|---------------------------|--------------------------|
-| Αρβανίτης Σπυρίδων        | it2023003@hua.gr         |
-| Πολίτης Αλέξιος           | it2023100@hua.gr         |
-| ~~Ξηρομερίτης Δημήτριος~~ | it2023052@hua.gr         |
+| Ονοματεπώνυμο         | Email                    |
+|-----------------------|--------------------------|
+| Αρβανίτης Σπυρίδων    | it2023003@hua.gr         |
+| Πολίτης Αλέξιος       | it2023100@hua.gr         |
+| Ξηρομερίτης Δημήτριος | it2023052@hua.gr         |
 
 
 ## Usage
